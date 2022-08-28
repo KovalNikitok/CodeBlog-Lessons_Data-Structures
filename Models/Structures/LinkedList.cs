@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using DataStructures.Models.Interfaces;
+using System.Collections;
 
 namespace DataStructures.Models
 {
-    class LinkedList<T> : IEnumerable
+    class LinkedList<T> : ILists<T>, IEnumerable
     {
         public Item<T> Head { get; private set; }
         public Item<T> Tail { get; private set; }
-        public int Count { get; set; }
+        public int Count { get; private set; }
 
         public LinkedList()
         {
