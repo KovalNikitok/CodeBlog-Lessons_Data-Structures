@@ -13,6 +13,8 @@ namespace DataStructures
             var circList = new CircularList<int>();
             var queue = new Queue<int>();
             var deqeue = new Deqeue<int>();
+            var set = new Set<int>();
+            var set1 = new Set<int>();
 
             for (int i = 0; i < 3; i++)
             {
@@ -23,9 +25,11 @@ namespace DataStructures
                 queue.Enqeue(21 - i * 2);
                 deqeue.PushBack(i + 13 * 3);
                 deqeue.PushFront(i * 15);
+                set.Add(i * 72);
+                set1.Add(i * 36);
             }
-            
 
+            // Stack
             Console.WriteLine($"Stack has {lStack.Count} elements");
             foreach (var item in lStack)
             {
@@ -33,6 +37,7 @@ namespace DataStructures
             }
             Console.WriteLine();
 
+            // Linked list
             list.AddFirst(25);
             list.AddAfter(13, 51);
             list.Delete(25);
@@ -42,7 +47,8 @@ namespace DataStructures
                 Console.WriteLine(item);
             }
             Console.WriteLine();
-           
+
+            // Bidirectional list
             biList.Delete(30);
             biList.Delete(0);
             biList.Reverse();
@@ -53,6 +59,7 @@ namespace DataStructures
             }
             Console.WriteLine();
 
+            // Circular list
             circList.Delete(28);
             Console.WriteLine($"Circular list has {circList.Count} elements");
             foreach (var item in circList)
@@ -61,7 +68,7 @@ namespace DataStructures
             }
             Console.WriteLine();
 
-            
+            // Queue
             Console.WriteLine($"Queue has {queue.Count} elements");
             Console.WriteLine(queue.PeekBack());
             Console.WriteLine();
@@ -74,7 +81,7 @@ namespace DataStructures
             }
             Console.WriteLine();
 
-            
+            // Deqeue
             Console.WriteLine($"Deqeue has {deqeue.Count} elements");
             Console.Write($"Before changing:");
             foreach (var item in deqeue)
@@ -90,6 +97,47 @@ namespace DataStructures
             Console.WriteLine($"Now deqeue has {deqeue.Count} elements");
             Console.Write($"After changing:");
             foreach (var item in deqeue)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            // Set
+            Console.WriteLine($"Set has {set.Count} elements");
+            Console.Write($"Before changing:");
+            foreach (var item in set)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            set = set.Union(set1);
+            Console.WriteLine($"Now union set has {set.Count} elements");
+            Console.Write($"After union:");
+            foreach (var item in set)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            set = set.Intersection(set1);
+            Console.WriteLine($"Now set by intersection has {set.Count} elements");
+            Console.Write($"After intersection:");
+            foreach (var item in set)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"Set has subset of 72? - {set.SubSet(new Set<int>(72))}");
+
+            set.Add(511);
+            set = set.SymmetricDifference(set1);
+            Console.WriteLine($"Now set with symmetric difference has {set.Count} elements");
+            Console.Write($"After symmetric difference:");
+            foreach (var item in set)
             {
                 Console.Write($" {item}");
             }
