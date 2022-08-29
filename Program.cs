@@ -16,6 +16,7 @@ namespace DataStructures
             var set = new Set<int>();
             var set1 = new Set<int>();
             var hashTable = new HashTable<string, int>(5);
+            var linkedHashTable = new LinkedHashTable<int>(4);
 
             for (int i = 0; i < 3; i++)
             {
@@ -29,6 +30,7 @@ namespace DataStructures
                 set.Add(i * 72);
                 set1.Add(i * 36);
                 hashTable.Add($"{i}elems", i * 999);
+                linkedHashTable.Add(i * 150);
             }
 
             // Stack
@@ -156,6 +158,21 @@ namespace DataStructures
             Console.WriteLine($"Is hash table has element '0'? - {hashTable.Search($"0", 0)}");
             Console.WriteLine($"Is hash table has element '999'? - {hashTable.Search($"1", 999)}");
             Console.WriteLine($"Is hash table has element '2314'? - {hashTable.Search($"2", 2314)}");
+
+            Console.WriteLine();
+
+            // Linked Hash Table
+            Console.Write("Linked hash table have: ");
+            foreach (var item in linkedHashTable)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"Linked hash tablse has 0? - {linkedHashTable.Search(0)}");
+            Console.WriteLine($"Linked hash tablse has 150? - {linkedHashTable.Search(150)}");
+            Console.WriteLine($"Linked hash tablse has 15? - {linkedHashTable.Search(15)}");
+            Console.WriteLine();
         }
     }
 }

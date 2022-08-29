@@ -140,6 +140,20 @@ namespace DataStructures.Models.Structures
 
         }
 
+        public bool First(T data)
+        {
+            if (Head == null)
+                return false;
+            var current = Head;
+            while(current != null)
+            {
+                if (current.Data.Equals(data))
+                    return true;
+                current = current.Next;
+            }
+            return false;
+        }
+
         private void SetFirstItem(T data)
         {
             var newItem = new Item<T>(data);
