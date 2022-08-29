@@ -1,7 +1,7 @@
 ﻿using DataStructures.Models.Interfaces;
 using System.Collections;
 
-namespace DataStructures.Models
+namespace DataStructures.Models.Structures
 {
     class LinkedList<T> : ILists<T>, IEnumerable
     {

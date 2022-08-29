@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace DataStructures.Models
+namespace DataStructures.Models.Structures
 {
     class LinkedStack<T> : IEnumerable
     {

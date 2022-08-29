@@ -1,16 +1,15 @@
 ﻿using DataStructures.Models.Interfaces;
 using DataStructures.Models.Items;
 using System.Collections;
-using System;
 
 
-namespace DataStructures.Models
+namespace DataStructures.Models.Structures
 {
     class BidirectionalList<T> : ILists<T>, IEnumerable
     {
         public BidirectionalItem<T> Head { get; set; }
         public BidirectionalItem<T> Tail { get; set; }
-        public int Count { get; private set; }
+        public int Count { get; set; }
         
 
         public BidirectionalList() { }
@@ -31,6 +30,21 @@ namespace DataStructures.Models
             newItem.Previous = Tail;
             Tail.Next = newItem;
             Tail = newItem;
+            Count++;
+        }
+
+        public void AddFirst(T data)
+        {
+            if (Count == 0)
+            {
+                SetFirstItem(data);
+                return;
+            }
+
+            var newItem = new BidirectionalItem<T>(data);
+            newItem.Next = Head;
+            Head.Previous = newItem;
+            Head = newItem;
             Count++;
         }
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using DataStructures.Models;
+using DataStructures.Models.Structures;
 
 namespace DataStructures
 {
@@ -12,14 +12,17 @@ namespace DataStructures
             var biList = new BidirectionalList<int>();
             var circList = new CircularList<int>();
             var queue = new Queue<int>();
+            var deqeue = new Deqeue<int>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 lStack.Push(5 * i);
                 list.Add(i + 7);
                 biList.Add(i * 10);
                 circList.Add(14 * i);
                 queue.Enqeue(21 - i * 2);
+                deqeue.PushBack(i + 13 * 3);
+                deqeue.PushFront(i * 15);
             }
             
 
@@ -68,6 +71,27 @@ namespace DataStructures
             foreach (var item in queue)
             {
                 Console.WriteLine(item);
+            }
+            Console.WriteLine();
+
+            
+            Console.WriteLine($"Deqeue has {deqeue.Count} elements");
+            Console.Write($"Before changing:");
+            foreach (var item in deqeue)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            deqeue.PeakFront();
+            deqeue.PopBack();
+            deqeue.PopBack();
+            deqeue.PopFront();
+            Console.WriteLine($"Now deqeue has {deqeue.Count} elements");
+            Console.Write($"After changing:");
+            foreach (var item in deqeue)
+            {
+                Console.Write($" {item}");
             }
             Console.WriteLine();
         }

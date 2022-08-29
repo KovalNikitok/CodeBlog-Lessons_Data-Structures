@@ -2,7 +2,7 @@
 using DataStructures.Models.Items;
 using System.Collections;
 
-namespace DataStructures.Models
+namespace DataStructures.Models.Structures
 {
     class CircularList<T> : ILists<T>, IEnumerable
     {

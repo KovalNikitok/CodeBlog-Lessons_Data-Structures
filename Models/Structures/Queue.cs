@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace DataStructures.Models
+namespace DataStructures.Models.Structures
 {
     class Queue<T> : IEnumerable
     {
