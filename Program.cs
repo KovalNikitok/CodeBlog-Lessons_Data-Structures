@@ -15,6 +15,7 @@ namespace DataStructures
             var deqeue = new Deqeue<int>();
             var set = new Set<int>();
             var set1 = new Set<int>();
+            var hashTable = new HashTable<string, int>(5);
 
             for (int i = 0; i < 3; i++)
             {
@@ -27,6 +28,7 @@ namespace DataStructures
                 deqeue.PushFront(i * 15);
                 set.Add(i * 72);
                 set1.Add(i * 36);
+                hashTable.Add($"{i}elems", i * 999);
             }
 
             // Stack
@@ -142,6 +144,18 @@ namespace DataStructures
                 Console.Write($" {item}");
             }
             Console.WriteLine();
+
+            // Hash Table
+            Console.WriteLine($"Hash table:\n(hash function calculate by element resolved to string and summary by chars code)");
+            foreach (var item in hashTable)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"Is hash table has element '0'? - {hashTable.Search($"0", 0)}");
+            Console.WriteLine($"Is hash table has element '999'? - {hashTable.Search($"1", 999)}");
+            Console.WriteLine($"Is hash table has element '2314'? - {hashTable.Search($"2", 2314)}");
         }
     }
 }
