@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System;
 using System.Collections.Generic;
+using DataStructures.Models.Interfaces;
 
 namespace DataStructures.Models.Structures
 {
-    public class HashTable<TKey, TValue> : IEnumerable
+    public class HashTable<TKey, TValue> : IPairLists<TKey, TValue>, IEnumerable
     {
         private List<TValue>[] _hashArray;
         public HashTable(int size)
@@ -20,6 +21,14 @@ namespace DataStructures.Models.Structures
             if (_hashArray[thisKey] == null)
                 _hashArray[thisKey] = new List<TValue>();
             _hashArray[thisKey].Add(value);
+        }
+
+        public void Delete(TKey key)
+        {
+            var hash = GetHash(key);
+            if (_hashArray[hash] == null)
+                return;
+            _hashArray[hash].RemoveAt(hash);
         }
 
         public bool Search(TKey key, TValue value)

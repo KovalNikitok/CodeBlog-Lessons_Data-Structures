@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System;
-
+using DataStructures.Models.Interfaces;
 
 namespace DataStructures.Models.Structures
 {
-    class LinkedHashTable<T> : IEnumerable
+    class LinkedHashTable<T> : ILists<T>, IEnumerable
     {
         private LinkedList<T>[] _hashArray;
         public LinkedHashTable(int size)
@@ -23,6 +23,14 @@ namespace DataStructures.Models.Structures
                 return;
             }
             _hashArray[key].Add(value);
+        }
+
+        public void Delete(T value)
+        {
+            var key = GetHash(value);
+            if (_hashArray[key] == null)
+                return;
+            _hashArray[key].Delete(value);
         }
 
         public bool Search(T value)

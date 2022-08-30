@@ -1,12 +1,12 @@
 ﻿namespace DataStructures.Models.Items
 {
-    class KeyValueItem<TKey, TValue>
+    class PairItem<TKey, TValue>
     {
         public TKey Key { get; set; }
         public TValue Value { get; set; }
 
-        public KeyValueItem() {  }
-        public KeyValueItem(TKey key, TValue value) 
+        public PairItem() {  }
+        public PairItem(TKey key, TValue value) 
         {
             if (key == null)
                 return;

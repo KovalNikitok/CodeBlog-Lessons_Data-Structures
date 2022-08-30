@@ -183,8 +183,8 @@ namespace DataStructures
                 Console.Write($" {item}");
             }
             Console.WriteLine();
-            dictionary.Remove("0elems");
-            dictionary.Remove("2elems");
+            dictionary.Delete("0elems");
+            dictionary.Delete("2elems");
             Console.WriteLine(dictionary.Search("4elems"));
 
             Console.Write("Dictionary after changing have: ");

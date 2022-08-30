@@ -1,14 +1,15 @@
-﻿using DataStructures.Models.Items;
+﻿using DataStructures.Models.Interfaces;
+using DataStructures.Models.Items;
 using System.Collections;
 
 namespace DataStructures.Models.Structures
 {
-    class Dictionary<TKey, TValue> : IEnumerable
+    class Dictionary<TKey, TValue> : IPairLists<TKey, TValue>, IEnumerable
     {
-        private KeyValueItem<TKey, TValue>[] items;
+        private PairItem<TKey, TValue>[] items;
         public Dictionary(int size)
         {
-            items = new KeyValueItem<TKey, TValue>[size];
+            items = new PairItem<TKey, TValue>[size];
         }
 
         public void Add(TKey key, TValue value)
@@ -19,7 +20,7 @@ namespace DataStructures.Models.Structures
             {
                 if (items[i] == null)
                 {
-                    items[i] = new KeyValueItem<TKey, TValue>(key, value);
+                    items[i] = new PairItem<TKey, TValue>(key, value);
                     return;
                 }
                 if (items[i].Key.Equals(key))
@@ -27,7 +28,7 @@ namespace DataStructures.Models.Structures
             }
         }
 
-        public void Remove(TKey key)
+        public void Delete(TKey key)
         {
             if (key == null)
                 return;
