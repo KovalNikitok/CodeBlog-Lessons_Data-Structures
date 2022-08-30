@@ -48,7 +48,8 @@ namespace DataStructures.Models.Structures
 
 
             // For basic realization with overrided GetHashCode()
-            return value.GetHashCode() % _hashArray.Length;
+            var res = value.GetHashCode() % _hashArray.Length;
+            return res < 0 ? -res : res;
         }
 
         public IEnumerator GetEnumerator()
