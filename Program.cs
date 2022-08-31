@@ -18,6 +18,7 @@ namespace DataStructures
             var hashTable = new HashTable<string, int>(5);
             var linkedHashTable = new LinkedHashTable<int>(4);
             var dictionary = new Dictionary<string, int>(4);
+            var binaryTree = new BinaryTree<int>();
 
             for (int i = 0; i < 3; i++)
             {
@@ -33,6 +34,8 @@ namespace DataStructures
                 hashTable.Add($"{i}elems", i * 999);
                 linkedHashTable.Add(i * 150);
                 dictionary.Add($"{i * 2}elems", i * 450);
+                binaryTree.Add(i + 1);
+                binaryTree.Add(-i - 1);
             }
 
             // Stack
@@ -193,6 +196,14 @@ namespace DataStructures
                 Console.Write($" {item}");
             }
             Console.WriteLine();
+
+            Console.Write("Binary tree have: ");
+            foreach (var item in binaryTree)
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+            
         }
     }
 }
