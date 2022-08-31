@@ -19,6 +19,7 @@ namespace DataStructures
             var linkedHashTable = new LinkedHashTable<int>(4);
             var dictionary = new Dictionary<string, int>(4);
             var binaryTree = new BinaryTree<int>();
+            var tries = new Trie<int>();
 
             for (int i = 0; i < 3; i++)
             {
@@ -40,9 +41,9 @@ namespace DataStructures
             Console.WriteLine($"Stack has {lStack.Count} elements");
             foreach (var item in lStack)
             {
-                Console.WriteLine(item);
+                Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Linked list
             list.AddFirst(25);
@@ -51,9 +52,9 @@ namespace DataStructures
             Console.WriteLine($"Linked list has {list.Count} elements");
             foreach (var item in list)
             {
-                Console.WriteLine(item);
+                Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Bidirectional list
             biList.Delete(30);
@@ -62,31 +63,29 @@ namespace DataStructures
             Console.WriteLine($"Bidirectional list has {biList.Count} elements");
             foreach (var item in biList)
             {
-                Console.WriteLine(item);
+                Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Circular list
             circList.Delete(28);
             Console.WriteLine($"Circular list has {circList.Count} elements");
             foreach (var item in circList)
             {
-                Console.WriteLine(item);
+                Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Queue
             Console.WriteLine($"Queue has {queue.Count} elements");
-            Console.WriteLine(queue.PeekBack());
-            Console.WriteLine();
-            Console.WriteLine(queue.Peek());
-            Console.WriteLine();
-            Console.WriteLine(queue.Deqeue());
+            Console.Write($" {queue.PeekBack()}");
+            Console.Write($" {queue.Peek()}");
+            Console.Write($" {queue.Deqeue()}");
             foreach (var item in queue)
             {
-                Console.WriteLine(item);
+                Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Deqeue
             Console.WriteLine($"Deqeue has {deqeue.Count} elements");
@@ -95,7 +94,7 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             deqeue.PeakFront();
             deqeue.PopBack();
@@ -107,8 +106,7 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
 
             // Set
@@ -148,7 +146,7 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Hash Table
             Console.WriteLine($"Hash table:\n(hash function calculate by element resolved to string and summary by chars code)");
@@ -156,13 +154,11 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
-
             Console.WriteLine($"Is hash table has element '0'? - {hashTable.Search($"0", 0)}");
             Console.WriteLine($"Is hash table has element '999'? - {hashTable.Search($"1", 999)}");
             Console.WriteLine($"Is hash table has element '2314'? - {hashTable.Search($"2", 2314)}");
 
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Linked Hash Table
             Console.Write("Linked hash table have: ");
@@ -175,7 +171,7 @@ namespace DataStructures
             Console.WriteLine($"Linked hash tablse has 0? - {linkedHashTable.Search(0)}");
             Console.WriteLine($"Linked hash tablse has 150? - {linkedHashTable.Search(150)}");
             Console.WriteLine($"Linked hash tablse has 15? - {linkedHashTable.Search(15)}");
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             // Dictionary
             Console.Write("Dictionary have: ");
@@ -193,7 +189,7 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
 
             // Binary tree
@@ -202,9 +198,7 @@ namespace DataStructures
             binaryTree.Add(8);
             binaryTree.Add(1);
             binaryTree.Add(4);
-            binaryTree.Add(2);
             binaryTree.Add(7);
-            binaryTree.Add(9);
             binaryTree.Add(6);
 
 
@@ -227,7 +221,22 @@ namespace DataStructures
             {
                 Console.Write($" {item}");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
+
+            // Trie
+            tries.Add("Vasyan", 25);
+            tries.Add("Ivan", 500);
+            tries.Add("Nikolay", 100);
+            tries.Add("Ivanovo", 50);
+            tries.Add("Nikolayevka", 20);
+            tries.Add("Vivik", 10);
+
+            Console.WriteLine($"Trie have {tries.Count} elements");
+            Console.WriteLine($"Result of searching in tries is: {tries.Search("Vivik")}");
+            tries.Delete("Vivik");
+            Console.WriteLine($"Result of searching after deleting: {tries.Search("Vivik")}");
+
+            Console.WriteLine("\n");
         }
     }
 }
