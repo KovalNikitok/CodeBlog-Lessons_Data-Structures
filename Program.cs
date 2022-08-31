@@ -34,8 +34,6 @@ namespace DataStructures
                 hashTable.Add($"{i}elems", i * 999);
                 linkedHashTable.Add(i * 150);
                 dictionary.Add($"{i * 2}elems", i * 450);
-                binaryTree.Add(i + 1);
-                binaryTree.Add(-i - 1);
             }
 
             // Stack
@@ -197,13 +195,39 @@ namespace DataStructures
             }
             Console.WriteLine();
 
-            Console.Write("Binary tree have: ");
-            foreach (var item in binaryTree)
+
+            // Binary tree
+            binaryTree.Add(5);
+            binaryTree.Add(3);
+            binaryTree.Add(8);
+            binaryTree.Add(1);
+            binaryTree.Add(4);
+            binaryTree.Add(2);
+            binaryTree.Add(7);
+            binaryTree.Add(9);
+            binaryTree.Add(6);
+
+
+            Console.Write("Binary tree by prefix  :");
+            foreach (var item in binaryTree.Preorder())
             {
                 Console.Write($" {item}");
             }
             Console.WriteLine();
-            
+
+            Console.Write("Binary tree by postfix :");
+            foreach (var item in binaryTree.Postorder())
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
+
+            Console.Write("Binary tree by infix   :");
+            foreach (var item in binaryTree.Inorder())
+            {
+                Console.Write($" {item}");
+            }
+            Console.WriteLine();
         }
     }
 }

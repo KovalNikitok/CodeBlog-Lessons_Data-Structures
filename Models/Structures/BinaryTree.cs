@@ -58,10 +58,12 @@ namespace DataStructures.Models.Structures
                 Count++;
         }
 
+        // For copying
         public List<T> Preorder()
         {
             var itemsList = new List<T>(Count);
-            PreorderRecursion(Root, itemsList);
+            if (itemsList != null)
+                PreorderRecursion(Root, itemsList);
             return itemsList;
         }
 
@@ -77,15 +79,63 @@ namespace DataStructures.Models.Structures
                 PreorderRecursion(item.Right, itemsArray);
         }
 
+        // For deleting
+        public List<T> Postorder()
+        {
+            var itemsList = new List<T>(Count);
+            if(itemsList != null)
+                PostorderRecursion(Root, itemsList);
+            return itemsList;
+        }
+
+        private void PostorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
+        {
+            if (item == null)
+                return;
+
+            if (item.Left != null)
+            {
+                PostorderRecursion(item.Left, itemsArray);
+            }
+            if (item.Right != null)
+            {
+                PostorderRecursion(item.Right, itemsArray);
+            }
+            itemsArray.Add(item.Data);
+        }
+        // For sorting
+        public List<T> Inorder()
+        {
+            var itemsList = new List<T>(Count);
+            if (itemsList != null)
+                InorderRecursion(Root, itemsList);
+            return itemsList;
+        }
+
+        
+        private void InorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
+        {
+            if (item == null)
+                return;
+
+            if (item.Left != null)
+            {
+                InorderRecursion(item.Left, itemsArray);
+            }
+            itemsArray.Add(item.Data);
+            if (item.Right != null)
+            {
+                InorderRecursion(item.Right, itemsArray);
+            }
+        }
 
         // TODO: Copy(prefix), DeleteAll(postfix), Sort(infix)
-
         public IEnumerator GetEnumerator()
         {
             if (Count <= 0)
                 yield break;
 
-            var itemsList = Preorder();
+            var itemsList = Inorder();
             foreach (var item in itemsList)
             {
                 if (item != null)
