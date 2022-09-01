@@ -9,7 +9,7 @@ namespace DataStructures
         {
             var list = new LinkedList<int>();
             var lStack = new LinkedStack<int>();
-            var biList = new BidirectionalList<int>();
+            var biList = new List<int>();
             var circList = new CircularList<int>();
             var queue = new Queue<int>();
             var deqeue = new Deqeue<int>();
@@ -20,6 +20,7 @@ namespace DataStructures
             var dictionary = new Dictionary<string, int>(4);
             var binaryTree = new BinaryTree<int>();
             var tries = new Trie<int>();
+            var binaryHeap = new BinaryHeap();
 
             for (int i = 0; i < 3; i++)
             {
@@ -226,7 +227,7 @@ namespace DataStructures
             // Trie
             tries.Add("Vasyan", 25);
             tries.Add("Ivan", 500);
-            tries.Add("Nikolay", 100);
+            tries.Add("Nikolay", 100); 
             tries.Add("Ivanovo", 50);
             tries.Add("Nikolayevka", 20);
             tries.Add("Vivik", 10);
@@ -236,6 +237,23 @@ namespace DataStructures
             tries.Delete("Vivik");
             Console.WriteLine($"Result of searching after deleting: {tries.Search("Vivik")}");
 
+            Console.WriteLine("\n");
+
+            // Binary heap
+            binaryHeap.Push(23);
+            binaryHeap.Push(10);
+            binaryHeap.Push(16);
+            binaryHeap.Push(8);
+            binaryHeap.Push(5);
+            binaryHeap.Push(11);
+            binaryHeap.Push(15);
+            binaryHeap.Push(13);
+
+            Console.WriteLine($"Binary heap have {binaryHeap.Count} elements");
+            foreach (var item in binaryHeap)
+            {
+                Console.WriteLine(item);
+            }
             Console.WriteLine("\n");
         }
     }

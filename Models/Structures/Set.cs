@@ -6,7 +6,7 @@ namespace DataStructures.Models.Structures
 {
     class Set<T> : ILists<T>, IEnumerable
     {
-        public List<T> items = new List<T>();
+        public System.Collections.Generic.List<T> items = new System.Collections.Generic.List<T>();
         public int Count => items.Count;
 
         public Set() { }

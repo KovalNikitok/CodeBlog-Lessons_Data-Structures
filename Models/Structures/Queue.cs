@@ -6,13 +6,13 @@ namespace DataStructures.Models.Structures
 {
     class Queue<T> : IEnumerable
     {
-        private List<T> _queue;
+        private System.Collections.Generic.List<T> _queue;
         private T Head => _queue[Count - 1];
         private T Tail => _queue[0];
         public int Count => _queue.Count;
         public Queue()
         {
-            _queue = new List<T>();
+            _queue = new System.Collections.Generic.List<T>();
         }
         public Queue(T data) : this()
         {

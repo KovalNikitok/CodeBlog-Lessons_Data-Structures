@@ -5,15 +5,15 @@ using System.Collections;
 
 namespace DataStructures.Models.Structures
 {
-    class BidirectionalList<T> : ILists<T>, IEnumerable
+    class List<T> : ILists<T>, IEnumerable
     {
         public BidirectionalItem<T> Head { get; set; }
         public BidirectionalItem<T> Tail { get; set; }
         public int Count { get; set; }
         
 
-        public BidirectionalList() { }
-        public BidirectionalList(T data)
+        public List() { }
+        public List(T data)
         {
             SetFirstItem(data);
         }

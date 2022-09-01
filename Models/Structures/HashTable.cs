@@ -7,19 +7,19 @@ namespace DataStructures.Models.Structures
 {
     public class HashTable<TKey, TValue> : IPairLists<TKey, TValue>, IEnumerable
     {
-        private List<TValue>[] _hashArray;
+        private System.Collections.Generic.List<TValue>[] _hashArray;
         public HashTable(int size)
         {
             if (size <= 0)
                 throw new ArgumentOutOfRangeException("Set greater size to hash set.");
-            _hashArray = new List<TValue>[size];
+            _hashArray = new System.Collections.Generic.List<TValue>[size];
         }
 
         public void Add(TKey key, TValue value)
         {
             var thisKey = GetHash(key);
             if (_hashArray[thisKey] == null)
-                _hashArray[thisKey] = new List<TValue>();
+                _hashArray[thisKey] = new System.Collections.Generic.List<TValue>();
             _hashArray[thisKey].Add(value);
         }
 

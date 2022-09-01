@@ -59,15 +59,15 @@ namespace DataStructures.Models.Structures
         }
 
         // For copying
-        public List<T> Preorder()
+        public System.Collections.Generic.List<T> Preorder()
         {
-            var itemsList = new List<T>(Count);
+            var itemsList = new System.Collections.Generic.List<T>(Count);
             if (itemsList != null)
                 PreorderRecursion(Root, itemsList);
             return itemsList;
         }
 
-        private void PreorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
+        private void PreorderRecursion(TreeRecursionItem<T> item, System.Collections.Generic.List<T> itemsArray)
         {
             if (item == null)
                 return;
@@ -80,15 +80,15 @@ namespace DataStructures.Models.Structures
         }
 
         // For deleting
-        public List<T> Postorder()
+        public System.Collections.Generic.List<T> Postorder()
         {
-            var itemsList = new List<T>(Count);
+            var itemsList = new System.Collections.Generic.List<T>(Count);
             if(itemsList != null)
                 PostorderRecursion(Root, itemsList);
             return itemsList;
         }
 
-        private void PostorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
+        private void PostorderRecursion(TreeRecursionItem<T> item, System.Collections.Generic.List<T> itemsArray)
         {
             if (item == null)
                 return;
@@ -104,16 +104,16 @@ namespace DataStructures.Models.Structures
             itemsArray.Add(item.Data);
         }
         // For sorting
-        public List<T> Inorder()
+        public System.Collections.Generic.List<T> Inorder()
         {
-            var itemsList = new List<T>(Count);
+            var itemsList = new System.Collections.Generic.List<T>(Count);
             if (itemsList != null)
                 InorderRecursion(Root, itemsList);
             return itemsList;
         }
 
         
-        private void InorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
+        private void InorderRecursion(TreeRecursionItem<T> item, System.Collections.Generic.List<T> itemsArray)
         {
             if (item == null)
                 return;
