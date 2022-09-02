@@ -6,7 +6,7 @@ namespace DataStructures.Models.Structures
 {
     class Deqeue<T> : IEnumerable
     {
-        private List<T> _deqeue;
+        private BidiretcionalList<T> _deqeue;
         public BidirectionalItem<T> Head
         {
             get
@@ -43,7 +43,7 @@ namespace DataStructures.Models.Structures
 
         public Deqeue()
         {
-            _deqeue = new List<T>();
+            _deqeue = new BidiretcionalList<T>();
         }
         public Deqeue(T data)
         {

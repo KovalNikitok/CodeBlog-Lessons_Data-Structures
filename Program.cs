@@ -1,4 +1,5 @@
 ﻿using System;
+using DataStructures.Models.Items;
 using DataStructures.Models.Structures;
 
 namespace DataStructures
@@ -9,7 +10,7 @@ namespace DataStructures
         {
             var list = new LinkedList<int>();
             var lStack = new LinkedStack<int>();
-            var biList = new List<int>();
+            var biList = new BidiretcionalList<int>();
             var circList = new CircularList<int>();
             var queue = new Queue<int>();
             var deqeue = new Deqeue<int>();
@@ -21,6 +22,7 @@ namespace DataStructures
             var binaryTree = new BinaryTree<int>();
             var tries = new Trie<int>();
             var binaryHeap = new BinaryHeap();
+            var graph = new Graph();
 
             for (int i = 0; i < 3; i++)
             {
@@ -227,7 +229,7 @@ namespace DataStructures
             // Trie
             tries.Add("Vasyan", 25);
             tries.Add("Ivan", 500);
-            tries.Add("Nikolay", 100); 
+            tries.Add("Nikolay", 100);
             tries.Add("Ivanovo", 50);
             tries.Add("Nikolayevka", 20);
             tries.Add("Vivik", 10);
@@ -255,6 +257,53 @@ namespace DataStructures
                 Console.WriteLine(item);
             }
             Console.WriteLine("\n");
+
+
+            // Graph
+            System.Collections.Generic.List<Vertex> vertexes = new System.Collections.Generic.List<Vertex>();
+            vertexes.Add(new Vertex(1));
+            vertexes.Add(new Vertex(2));
+            vertexes.Add(new Vertex(3));
+            vertexes.Add(new Vertex(4));
+            vertexes.Add(new Vertex(5));
+            vertexes.Add(new Vertex(6));
+            vertexes.Add(new Vertex(7));
+
+            graph.AddVertex(vertexes[0]);
+            graph.AddVertex(vertexes[1]);
+            graph.AddVertex(vertexes[2]);
+            graph.AddVertex(vertexes[3]);
+            graph.AddVertex(vertexes[4]);
+            graph.AddVertex(vertexes[5]);
+            graph.AddVertex(vertexes[6]);
+
+            graph.AddEdge(new Edge(vertexes[0], vertexes[1], 15));
+            graph.AddEdge(new Edge(vertexes[0], vertexes[2], 8));
+            graph.AddEdge(new Edge(vertexes[2], vertexes[3], 10));
+            graph.AddEdge(new Edge(vertexes[1], vertexes[4], 7));
+            graph.AddEdge(new Edge(vertexes[1], vertexes[5], 3));
+            graph.AddEdge(new Edge(vertexes[4], vertexes[5], 5));
+            graph.AddEdge(new Edge(vertexes[5], vertexes[4], 5));
+
+            var matrix = graph.GetMatrix();
+
+            Console.WriteLine($"Graph have elements in matrix ({graph.Count}):");
+            Console.WriteLine("_____________________________________");
+            Console.WriteLine("# | 1 |  2 |  3 |  4 |  5 |  6 |  7 |");
+            for (int i = 0; i < graph.Vertexes.Count; i++)
+            {
+                Console.Write($"{i + 1} |");
+                for (int j = 0; j < graph.Vertexes.Count; j++)
+                {
+                    Console.Write($"{matrix[i, j], 2} | ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("_____________________________________\n");
+
+            Console.WriteLine("Wave algorithm define that graph has path for once element from other:");
+            Console.WriteLine(graph.Wave(vertexes[0], vertexes[4]));
+            Console.WriteLine(graph.Wave(vertexes[0], vertexes[6]));
         }
     }
 }
