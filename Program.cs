@@ -300,8 +300,11 @@ namespace DataStructures
                 Console.WriteLine();
             }
             Console.WriteLine("_____________________________________\n");
-
-            Console.WriteLine("Wave algorithm define that graph has path for once element from other:");
+            Console.WriteLine("DeepSearch algorithm define that graph has path for once element from other:");
+            Console.WriteLine(graph.DeepSearch(vertexes[0], vertexes[4]));
+            Console.WriteLine(graph.DeepSearch(vertexes[0], vertexes[6]));
+            
+            Console.WriteLine("Wave algorithm with almost same as deep search effect:");
             Console.WriteLine(graph.Wave(vertexes[0], vertexes[4]));
             Console.WriteLine(graph.Wave(vertexes[0], vertexes[6]));
         }

@@ -76,6 +76,32 @@ namespace DataStructures.Models.Structures
             return result.Contains(endVertex);
         }
 
+        public bool DeepSearch(Vertex startVertex, Vertex endVertex)
+        {
+            if (Count <= 0 || startVertex == null || endVertex == null)
+                return false;
+            return DeepSearchRecursive(new List<Vertex>(), startVertex, endVertex);
+        }
+
+        private bool DeepSearchRecursive(List<Vertex> vertexList,Vertex startVertex, Vertex endVertex)
+        {
+            if (vertexList.Count > 0 && vertexList.Contains(endVertex))
+                return true;
+            var hasPath = false;
+            foreach (var item in GetVertexLinks(startVertex))
+            {
+                if (hasPath)
+                    return hasPath;
+                if (vertexList.Contains(item))
+                {
+                    continue;
+                }
+                vertexList.Add(item);
+                hasPath = DeepSearchRecursive(vertexList, item, endVertex);
+            }
+            return hasPath;
+        }
+
         public IEnumerable<Vertex> GetVertexLinks(Vertex vertex)
         {
             if (Edges.Count <= 0)
